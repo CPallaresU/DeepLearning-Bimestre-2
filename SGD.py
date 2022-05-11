@@ -42,6 +42,10 @@ for e in range(epochs):
         
         """
         
+        
+              El momento en el que se detiene mi proceso es cuando mi derivada está entre 
+              0 y aproximadamente 0,  0 < DY/DX < 0.01 (línea 34).
+              
               Dependiendo el valor con el que inicialice, se verá afectado el tiempo de 
               convergencia para llegar al mínimo o máximo, entre mas alejado del mínimo 
               me cuentre, más tiempo le tomará al algoritmo converger. El tamaño del 
