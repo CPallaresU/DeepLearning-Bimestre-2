@@ -82,7 +82,7 @@ w2 = random.random()
 w3 = random.random()
 data = np.linspace(0.0, 4.0, num=10000)
 y = -1*np.square(data-2) + 3 + 0.2 * np.sin(16*data)
-epochs = 10
+epochs = 100
 lr = 0.001
 l_error=[]
 
@@ -92,6 +92,8 @@ print("")
 print("     Resultados en gráfico")
 print("")
 
+plt.figure(1)
+plt.subplot(211)
 
 plt.plot((data*data)*w1 + data*w2 + w3, label = "Y_hat before fitting")
 
@@ -114,8 +116,27 @@ for e in range(epochs):
         w3 = w3 - lr*dl_w3
         error = (y[i] - y_pred)*(y[i] - y_pred)/len(y)
         l_error.append(error)
-        #print(error)
+        
+        """
+        
+            La regla de actualización de cada párametro (w1, w2 y w3) está dado por la derivada de Y_hat
+            con respecto a cada párametro.
+        
+        
+        """
+        
+        
 
 plt.plot(y, label = "f(x) = y")
 plt.plot((data*data)*w1 + data*w2 + w3, label = "Y_hat fatter fitted W")
 plt.legend(loc="upper left")
+
+
+plt.subplot(212)
+plt.plot(l_error, label = "Error through epochs")
+plt.legend(loc="upper right")
+
+
+
+
+
